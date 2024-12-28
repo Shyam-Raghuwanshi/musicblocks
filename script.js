@@ -9,6 +9,7 @@ $(document).ready(function() {
      * @type {string}
      */
     var mode;
+    console.log("----------------------------")
     try {
         mode = localStorage.getItem("beginnerMode") || "true";
     } catch (error) {

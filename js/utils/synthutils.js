@@ -443,10 +443,10 @@ function Synth() {
     // this.tone = new Tone();
     this.tone = null;
 
-    Tone.Buffer.onload = () => {
-        // eslint-disable-next-line no-console
-        console.debug("sample loaded");
-    };
+    // Tone.Buffer.onload = () => {
+    //     // eslint-disable-next-line no-console
+    //     console.debug("sample loaded");
+    // };
     /**
      * Object to store samples.
      * @type {Object}
@@ -482,7 +482,7 @@ function Synth() {
      * @type {Object.<string, [number, number]>}
      */
     this.noteFrequencies = {};
-    
+
     /**
      * Function to initialize a new Tone.js instance.
      * @function
@@ -490,7 +490,7 @@ function Synth() {
     this.newTone = () => {
         this.tone = Tone;
     };
-    
+
     /**
      * Function to get the current temperament.
      * @function
@@ -634,7 +634,6 @@ function Synth() {
                 delete this.noteFrequencies[key];
             }
         }
-
         this.changeInTemperament = false;
     };
     /**
@@ -745,20 +744,20 @@ function Synth() {
                 0,
                 "C Major"
             );
-            if (typeof(oneNote) !== "number") {
+            if (typeof (oneNote) !== "number") {
                 const thisTemperament = getTemperament(customID);
                 for (const pitchNumber in thisTemperament) {
                     if (pitchNumber !== "pitchNumber") {
                         if (
                             (isCustomTemperament(customID) &&
-                             oneNote === thisTemperament[pitchNumber][3]) ||
-                                oneNote === thisTemperament[pitchNumber][1]
+                                oneNote === thisTemperament[pitchNumber][3]) ||
+                            oneNote === thisTemperament[pitchNumber][1]
                         ) {
                             const octaveDiff = octave - thisTemperament[pitchNumber][2];
                             return Number(
                                 thisTemperament[pitchNumber][0] *
-                                    startPitchFrequency *
-                                    Math.pow(getOctaveRatio(), octaveDiff)
+                                startPitchFrequency *
+                                Math.pow(getOctaveRatio(), octaveDiff)
                             );
                         }
                     }
@@ -785,7 +784,7 @@ function Synth() {
             return notes;
         }
     };
-    
+
     /**
      * Function to resume the Tone.js context.
      * @function
@@ -866,7 +865,6 @@ function Synth() {
             return null;
         };
         this.samplesManifest.voice.push({ name: "empty", data: data });
-
         /*eslint-disable no-prototype-builtins*/
         if (this.samples === null) {
             this.samples = {};
@@ -1172,6 +1170,9 @@ function Synth() {
      */
     this.createDefaultSynth = turtle => {
         // eslint-disable-next-line no-console
+        if (!instruments[turtle]) {
+            instruments[turtle] = {}; // Initialize instruments for the turtle
+        }
         console.debug("create default poly/default/custom synth for turtle " + turtle);
         const default_synth = new Tone.PolySynth(Tone.AMSynth, POLYCOUNT).toDestination();
         instruments[turtle]["electronic synth"] = default_synth;
@@ -1189,6 +1190,7 @@ function Synth() {
      * @param {string} sourceName - The name of the source.
      * @returns {Tone.Sampler|Tone.Player} - The created synth.
      */
+
     this._createSampleSynth = (turtle, instrumentName, sourceName) => {
         let tempSynth;
         if (sourceName in this.samples.voice) {
@@ -1203,7 +1205,7 @@ function Synth() {
         } else if (sourceName in this.samples.drum) {
             instrumentsSource[instrumentName] = [1, sourceName];
             tempSynth = new Tone.Player(this.samples.drum[sourceName]);
-        } else if (sourceName in CUSTOMSAMPLES){
+        } else if (sourceName in CUSTOMSAMPLES) {
             instrumentsSource[instrumentName] = [2, sourceName];
             const noteDict = {};
             const params = CUSTOMSAMPLES[sourceName];
@@ -1215,10 +1217,9 @@ function Synth() {
             instrumentsSource[instrumentName] = [1, "drum"];
             tempSynth = new Tone.Player(this.samples.drum[DEFAULTDRUM]);
         }
-
         return tempSynth;
     };
-    
+
     /**
      * Parses solfege notation and octave to determine the pitch number.
      * @function
@@ -1229,13 +1230,13 @@ function Synth() {
      */
     this._parseSampleCenterNo = (solfege, octave) => {
         // const pitchName = "C4";
-        const solfegeDict = {"do":0, "re":2, "mi":4, "fa":5, "sol":7, "la":9, "ti":11};
-        const letterDict = {"C":0, "D":2, "E":4, "F":5, "G":7, "A":9, "B":11};
+        const solfegeDict = { "do": 0, "re": 2, "mi": 4, "fa": 5, "sol": 7, "la": 9, "ti": 11 };
+        const letterDict = { "C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11 };
 
         let attr = getArticulation(solfege);
         if (attr === SHARP) {
             attr = 1;
-        } else if (attr ===FLAT) {
+        } else if (attr === FLAT) {
             attr = -1;
         } else if (attr === DOUBLESHARP) {
             attr = 2;
@@ -1257,11 +1258,10 @@ function Synth() {
         }
         const pitchNumber = octave * 12 + chromaticNumber + attr;
         // eslint-disable-next-line no-console
-        console.log(solfege + octave + " = " + pitchNumber);
         return pitchNumber.toString();
     };
 
-    
+
     /**
      * Creates a synth using builtin synths from Tone.js.
      * @function
@@ -1349,7 +1349,7 @@ function Synth() {
 
         return tempSynth;
     };
-    
+
     /**
      * Creates a synth based on the specified parameters, either using samples, built-in synths, or custom synths.
      * @function
@@ -1360,7 +1360,6 @@ function Synth() {
      * @param {Object} params - Additional parameters for synth configuration.
      */
     this.__createSynth = (turtle, instrumentName, sourceName, params) => {
-
         this._loadSample(sourceName);
         if (sourceName in this.samples.voice || sourceName in this.samples.drum) {
             instruments[turtle][instrumentName] = this._createSampleSynth(
@@ -1423,7 +1422,6 @@ function Synth() {
         // We may have a race condition with the samples loader.
         if (this.samples === null) {
             this.samplesQueue.push([instrumentName, sourceName, params]);
-
             require(SOUNDSAMPLESDEFINES, () => {
                 this.loadSamples();
             });
@@ -1431,7 +1429,7 @@ function Synth() {
             this.__createSynth(turtle, instrumentName, sourceName, params);
         }
     };
-    
+
     /**
      * Loads a synth based on the user's input, creating and setting volume for the specified turtle.
      * @function
@@ -1442,18 +1440,13 @@ function Synth() {
      */
     this.loadSynth = (turtle, sourceName) => {
         /* eslint-disable */
-        if (sourceName in instruments[turtle]) {
-            if (sourceName.substring(0,13) === "customsample_") {
-                console.debug("loading custom " + sourceName);
-                this.createSynth(turtle, sourceName, sourceName, null);
-            // } else {
-            //     console.debug(sourceName + " already loaded");
-            }
-
+        if (sourceName.substring(0, 13) === "customsample_") {
+            console.debug("loading custom " + sourceName);
         } else {
             console.debug("loading " + sourceName);
-            this.createSynth(turtle, sourceName, sourceName, null);
         }
+        this.createSynth(turtle, sourceName, sourceName, null);
+
         this.setVolume(turtle, sourceName, last(Singer.masterVolume));
 
         if (sourceName in instruments[turtle]) {
@@ -1462,7 +1455,7 @@ function Synth() {
 
         return null;
     };
-    
+
     /**
      * Perform notes using the provided synth, notes, and parameters for effects and filters.
      * @function
@@ -1518,8 +1511,9 @@ function Synth() {
         if (paramsEffects === null && paramsFilters === null) {
             // See https://github.com/sugarlabs/musicblocks/issues/2951
             try {
+                console.log("hi there")
                 synth.triggerAttackRelease(notes, beatValue, Tone.now() + future);
-            } catch(e) {
+            } catch (e) {
                 // eslint-disable-next-line no-console
                 console.debug(e);
             }
@@ -1648,14 +1642,14 @@ function Synth() {
                             synth.voices[i].setNote(notes);
                         }
                     }
-                } else {  
+                } else {
                     Tone.ToneAudioBuffer.loaded().then(() => {
                         synth.triggerAttackRelease(notes, beatValue, Tone.now() + future);
                     }).catch((e) => {
-                    console.debug(e);
+                        console.debug(e);
                     })
 
-                }   
+                }
             }
 
             setTimeout(() => {
@@ -1721,23 +1715,23 @@ function Synth() {
         // eslint-disable-next-line no-console
         console.debug(
             turtle +
-                " " +
-                notes +
-                " " +
-                beatValue +
-                " " +
-                instrumentName +
-                " " +
-                paramsEffects +
-                " " +
-                paramsFilters +
-                " " +
-                setNote +
-                " " +
-                future
+            " " +
+            notes +
+            " " +
+            beatValue +
+            " " +
+            instrumentName +
+            " " +
+            paramsEffects +
+            " " +
+            paramsFilters +
+            " " +
+            setNote +
+            " " +
+            future
         );
         // Effects don't work with sine, sawtooth, et al.
-        if (["sine", "sawtooth", "triangle", "square"].includes(instrumentName)) {
+        if (["sine", "sawtooth", "triangle", "square"].indexOf(instrumentName) !== -1) {
             paramsEffects = null;
         } else if (paramsEffects !== null && paramsEffects !== undefined) {
             if (paramsEffects["vibratoIntensity"] !== 0) {
@@ -1768,6 +1762,7 @@ function Synth() {
         let tempNotes = notes;
         let tempSynth = instruments[turtle]["electronic synth"];
         let flag = 0;
+        console.log(instrumentName in instruments[turtle])
         if (instrumentName in instruments[turtle]) {
             tempSynth = instruments[turtle][instrumentName];
             flag = instrumentsSource[instrumentName][0];
@@ -1891,7 +1886,7 @@ function Synth() {
         Tone.Transport.start();
     };
 
-    this.stop =  () => {
+    this.stop = () => {
         Tone.Transport.stop();
     };
 
@@ -1938,7 +1933,7 @@ function Synth() {
 
         synth.volume.linearRampToValueAtTime(db, Tone.now() + rampTime);
     };
-    
+
     /**
      * Sets the volume of a specific instrument for a given turtle.
      * @function
@@ -1964,7 +1959,8 @@ function Synth() {
         }
 
         // Convert volume to decibals
-        const db = Tone.gainToDb(nv / 100);
+        const db = Tone.gainToDb(nv / 100); //undefined
+
         if (instrumentName in instruments[turtle]) {
             instruments[turtle][instrumentName].volume.value = db;
         }
@@ -1988,7 +1984,7 @@ function Synth() {
             return 50;
         }
     };
-    
+
     /**
      * Sets the master volume for all instruments.
      * @function
@@ -1998,78 +1994,6 @@ function Synth() {
     this.setMasterVolume = volume => {
         const db = Tone.gainToDb(volume / 100);
         Tone.Destination.volume.rampTo(db, 0.01);
-    };
-
-    /**
-     * Starts Recording
-     * @function
-     * @memberof Synth
-     */
-    this.startRecording = async () => {
-        await Tone.start();
-        this.mic = new Tone.UserMedia();
-        this.recorder = new Tone.Recorder();
-        await this.mic.open()
-        .then(() => {
-            console.log("Mic opened");
-            this.mic.connect(this.recorder);
-            this.recorder.start();
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }
-
-    /**
-     * Stops Recording
-     * @function
-     * @memberof Synth
-     */
-    this.stopRecording = async () => {
-        this.recording = await this.recorder.stop();
-        this.mic.close();
-        this.audioURL = URL.createObjectURL(this.recording);
-        return this.audioURL;
-    }
-
-    /**
-     * Plays Recording
-     * @function
-     * @memberof Synth
-     */
-    this.playRecording = async () => {
-        this.player = new Tone.Player().toDestination();
-        await this.player.load(this.audioURL)
-        this.player.start();
-    }
-
-    /**
-     * Stops Recording
-     * @function
-     * @memberof Synth
-     */
-    this.stopPlayBackRecording = () => {
-        this.player.stop();
-    }
-
-    /**
-     * Analyzing the audio
-     * @function
-     * @memberof Synth
-     */
-    this.LiveWaveForm = () => {
-        this.analyser = new Tone.Analyser('waveform', 8192);
-        this.mic.connect(this.analyser);
-    }
-
-    /**
-    * Gets real-time waveform values
-    * @function
-    * @memberof Synth
-    */
-    this.getWaveFormValues = () => {
-        const values = this.analyser.getValue();
-        return values;
     };
 
     return this;

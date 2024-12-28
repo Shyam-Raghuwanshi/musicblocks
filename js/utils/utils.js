@@ -29,7 +29,6 @@
 */
 
 /* exported
-
    canvasPixelRatio, changeImage, closeBlkWidgets, closeWidgets,
    delayExecution, displayMsg, doBrowserCheck, docByClass, docByName,
    docBySelector, docByTagName, doPublish, doStopVideoCam, doSVG,

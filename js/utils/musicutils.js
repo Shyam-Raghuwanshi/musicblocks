@@ -995,203 +995,203 @@ const NOTESYMBOLS = {
  * Musical terms used in selectors that may require translation.
  * @constant {Array<string>}
  */
-const SELECTORSTRINGS = [
-    //.TRANS: unison is a music term related to intervals
-    _("unison"),
-    //.TRANS: augmented is a music term related to intervals
-    _("augmented"),
-    //.TRANS: diminished is a music term related to intervals and mode
-    _("diminished"),
-    //.TRANS: minor is a music term related to intervals and mode
-    _("minor"),
-    //.TRANS: major is a music term related to intervals and mode
-    _("major"),
-    //.TRANS: perfect is a music term related to intervals
-    _("perfect"),
-    //.TRANS: twelve semi-tone scale for music
-    _("chromatic"),
-    _("algerian"),
-    _("spanish"),
-    //.TRANS: modal scale in music
-    _("octatonic"),
-    //.TRANS: harmonic major scale in music
-    _("harmonic major"),
-    //.TRANS: natural minor scales in music
-    _("natural minor"),
-    //.TRANS: harmonic minor scale in music
-    _("harmonic minor"),
-    //.TRANS: melodic minor scale in music
-    _("melodic minor"),
-    //.TRANS: modal scale for music
-    _("ionian"),
-    //.TRANS: modal scale for music
-    _("dorian"),
-    //.TRANS: modal scale for music
-    _("phrygian"),
-    //.TRANS: modal scale for music
-    _("lydian"),
-    //.TRANS: modal scale for music
-    _("mixolydian"),
-    //.TRANS: modal scale for music
-    _("aeolian"),
-    //.TRANS: modal scale for music
-    _("locrian"),
-    //.TRANS: minor jazz scale for music
-    _("jazz minor"),
-    //.TRANS: bebop scale for music
-    _("bebop"),
-    _("arabic"),
-    _("byzantine"),
-    //.TRANS: musical scale for music by Verdi
-    _("enigmatic"),
-    _("ethiopian"),
-    //.TRANS: Ethiopic scale for music
-    _("geez"),
-    _("hindu"),
-    _("hungarian"),
-    //.TRANS: minor Romanian scale for music
-    _("romanian minor"),
-    _("spanish gypsy"),
-    //.TRANS: musical scale for Mid-Eastern music
-    _("maqam"),
-    //.TRANS: minor blues scale for music
-    _("minor blues"),
-    //.TRANS: major blues scale for music
-    _("major blues"),
-    _("whole tone"),
-    //.TRANS: pentatonic is a general term that means "five note scale". This scale is typically known as "minor pentatonic"
-    _("minor pentatonic"),
-    //.TRANS: pentatonic is a general term that means "five note scale". This scale is typically known as "major pentatonic"
-    _("major pentatonic"),
-    _("chinese"),
-    _("egyptian"),
-    //.TRANS: https://en.wikipedia.org/wiki/Hirajoshi_scale NOTE: There are three different versions of this scale
-    _("hirajoshi"),
-    _("Japan"),
-    //.TRANS: https://en.wikipedia.org/wiki/In_scale and https://en.wikipedia.org/wiki/Sakura_Sakura
-    _("in"),
-    //.TRANS: https://en.wikipedia.org/wiki/Miny%C5%8D_scale
-    _("minyo"),
-    //.TRANS: Italian mathematician
-    _("fibonacci"),
-    _("custom"),
-    //.TRANS: highpass filter
-    _("highpass"),
-    //.TRANS: lowpass filter
-    _("lowpass"),
-    //.TRANS: bandpass filter
-    _("bandpass"),
-    //.TRANS: high-shelf filter
-    _("highshelf"),
-    //.TRANS: low-shelf filter
-    _("lowshelf"),
-    //.TRANS: notch-shelf filter
-    _("notch"),
-    //.TRANS: all-pass filter
-    _("allpass"),
-    //.TRANS: peaking filter
-    _("peaking"),
-    _("sine"),
-    _("square"),
-    _("triangle"),
-    _("sawtooth"),
-    //.TRANS: even numbers
-    _("even"),
-    //.TRANS: odd numbers
-    _("odd"),
-    _("scalar"),
-    _("piano"),
-    _("violin"),
-    _("viola"),
-    _("xylophone"),
-    _("vibraphone"),
-    _("cello"),
-    _("bass"),
-    _("double bass"),
-    _("guitar"),
-    _("acoustic guitar"),
-    _("flute"),
-    _("clarinet"),
-    _("saxophone"),
-    _("tuba"),
-    _("trumpet"),
-    _("oboe"),
-    _("trombone"),
-    _("electronic synth"),
-    _("simple 1"),
-    _("simple 2"),
-    _("simple 3"),
-    _("simple 4"),
-    _("white noise"),
-    _("brown noise"),
-    _("pink noise"),
-    _("custom"),
-    _("snare drum"),
-    _("kick drum"),
-    _("tom tom"),
-    _("floor tom"),
-    _("bass drum"),
-    _("cup drum"),
-    _("darbuka drum"),
-    _("hi hat"),
-    _("ride bell"),
-    _("cow bell"),
-    _("japanese drum"),
-    // _('japanese bell'),
-    _("triangle bell"),
-    _("finger cymbals"),
-    _("chime"),
-    _("gong"),
-    _("clang"),
-    _("crash"),
-    _("bottle"),
-    _("clap"),
-    _("slap"),
-    _("splash"),
-    _("bubbles"),
-    _("raindrop"),
-    _("cat"),
-    _("cricket"),
-    _("dog"),
-    _("duck"),
-    _("banjo"),
-    _("koto"),
-    _("dulcimer"),
-    _("electric guitar"),
-    _("bassoon"),
-    _("celeste"),
-    //.TRANS: musical temperament
-    _("equal"),
-    //.TRANS: musical temperament
-    _("Pythagorean"),
-    //.TRANS: musical temperament
-    _("just intonation"),
-    //.TRANS: musical temperament
-    _("Meantone").toLowerCase(),
-    _("custom"),
-    //.TRANS: double flat is a music term related to pitch
-    _("double flat"),
-    //.TRANS: flat is a music term related to pitch
-    _("flat"),
-    //.TRANS: natural is a music term related to pitch
-    _("natural"),
-    //.TRANS: sharp is a music term related to pitch
-    _("sharp"),
-    //.TRANS: double sharp is a music term related to pitch
-    _("double sharp"),
-    // Chord names
-    _("major"),
-    _("minor"),
-    _("augmented"),
-    _("diminished"),
-    _("major 7th"),
-    _("minor 7th"),
-    _("dominant 7th"),
-    _("minor-major 7th"),
-    _("fully-diminished 7th"),
-    _("half-diminished 7th"),
-    _("custom")
-];
+// const SELECTORSTRINGS = [
+//     //.TRANS: unison is a music term related to intervals
+//     _("unison"),
+//     //.TRANS: augmented is a music term related to intervals
+//     _("augmented"),
+//     //.TRANS: diminished is a music term related to intervals and mode
+//     _("diminished"),
+//     //.TRANS: minor is a music term related to intervals and mode
+//     _("minor"),
+//     //.TRANS: major is a music term related to intervals and mode
+//     _("major"),
+//     //.TRANS: perfect is a music term related to intervals
+//     _("perfect"),
+//     //.TRANS: twelve semi-tone scale for music
+//     _("chromatic"),
+//     _("algerian"),
+//     _("spanish"),
+//     //.TRANS: modal scale in music
+//     _("octatonic"),
+//     //.TRANS: harmonic major scale in music
+//     _("harmonic major"),
+//     //.TRANS: natural minor scales in music
+//     _("natural minor"),
+//     //.TRANS: harmonic minor scale in music
+//     _("harmonic minor"),
+//     //.TRANS: melodic minor scale in music
+//     _("melodic minor"),
+//     //.TRANS: modal scale for music
+//     _("ionian"),
+//     //.TRANS: modal scale for music
+//     _("dorian"),
+//     //.TRANS: modal scale for music
+//     _("phrygian"),
+//     //.TRANS: modal scale for music
+//     _("lydian"),
+//     //.TRANS: modal scale for music
+//     _("mixolydian"),
+//     //.TRANS: modal scale for music
+//     _("aeolian"),
+//     //.TRANS: modal scale for music
+//     _("locrian"),
+//     //.TRANS: minor jazz scale for music
+//     _("jazz minor"),
+//     //.TRANS: bebop scale for music
+//     _("bebop"),
+//     _("arabic"),
+//     _("byzantine"),
+//     //.TRANS: musical scale for music by Verdi
+//     _("enigmatic"),
+//     _("ethiopian"),
+//     //.TRANS: Ethiopic scale for music
+//     _("geez"),
+//     _("hindu"),
+//     _("hungarian"),
+//     //.TRANS: minor Romanian scale for music
+//     _("romanian minor"),
+//     _("spanish gypsy"),
+//     //.TRANS: musical scale for Mid-Eastern music
+//     _("maqam"),
+//     //.TRANS: minor blues scale for music
+//     _("minor blues"),
+//     //.TRANS: major blues scale for music
+//     _("major blues"),
+//     _("whole tone"),
+//     //.TRANS: pentatonic is a general term that means "five note scale". This scale is typically known as "minor pentatonic"
+//     _("minor pentatonic"),
+//     //.TRANS: pentatonic is a general term that means "five note scale". This scale is typically known as "major pentatonic"
+//     _("major pentatonic"),
+//     _("chinese"),
+//     _("egyptian"),
+//     //.TRANS: https://en.wikipedia.org/wiki/Hirajoshi_scale NOTE: There are three different versions of this scale
+//     _("hirajoshi"),
+//     _("Japan"),
+//     //.TRANS: https://en.wikipedia.org/wiki/In_scale and https://en.wikipedia.org/wiki/Sakura_Sakura
+//     _("in"),
+//     //.TRANS: https://en.wikipedia.org/wiki/Miny%C5%8D_scale
+//     _("minyo"),
+//     //.TRANS: Italian mathematician
+//     _("fibonacci"),
+//     _("custom"),
+//     //.TRANS: highpass filter
+//     _("highpass"),
+//     //.TRANS: lowpass filter
+//     _("lowpass"),
+//     //.TRANS: bandpass filter
+//     _("bandpass"),
+//     //.TRANS: high-shelf filter
+//     _("highshelf"),
+//     //.TRANS: low-shelf filter
+//     _("lowshelf"),
+//     //.TRANS: notch-shelf filter
+//     _("notch"),
+//     //.TRANS: all-pass filter
+//     _("allpass"),
+//     //.TRANS: peaking filter
+//     _("peaking"),
+//     _("sine"),
+//     _("square"),
+//     _("triangle"),
+//     _("sawtooth"),
+//     //.TRANS: even numbers
+//     _("even"),
+//     //.TRANS: odd numbers
+//     _("odd"),
+//     _("scalar"),
+//     _("piano"),
+//     _("violin"),
+//     _("viola"),
+//     _("xylophone"),
+//     _("vibraphone"),
+//     _("cello"),
+//     _("bass"),
+//     _("double bass"),
+//     _("guitar"),
+//     _("acoustic guitar"),
+//     _("flute"),
+//     _("clarinet"),
+//     _("saxophone"),
+//     _("tuba"),
+//     _("trumpet"),
+//     _("oboe"),
+//     _("trombone"),
+//     _("electronic synth"),
+//     _("simple 1"),
+//     _("simple 2"),
+//     _("simple 3"),
+//     _("simple 4"),
+//     _("white noise"),
+//     _("brown noise"),
+//     _("pink noise"),
+//     _("custom"),
+//     _("snare drum"),
+//     _("kick drum"),
+//     _("tom tom"),
+//     _("floor tom"),
+//     _("bass drum"),
+//     _("cup drum"),
+//     _("darbuka drum"),
+//     _("hi hat"),
+//     _("ride bell"),
+//     _("cow bell"),
+//     _("japanese drum"),
+//     // _('japanese bell'),
+//     _("triangle bell"),
+//     _("finger cymbals"),
+//     _("chime"),
+//     _("gong"),
+//     _("clang"),
+//     _("crash"),
+//     _("bottle"),
+//     _("clap"),
+//     _("slap"),
+//     _("splash"),
+//     _("bubbles"),
+//     _("raindrop"),
+//     _("cat"),
+//     _("cricket"),
+//     _("dog"),
+//     _("duck"),
+//     _("banjo"),
+//     _("koto"),
+//     _("dulcimer"),
+//     _("electric guitar"),
+//     _("bassoon"),
+//     _("celeste"),
+//     //.TRANS: musical temperament
+//     _("equal"),
+//     //.TRANS: musical temperament
+//     _("Pythagorean"),
+//     //.TRANS: musical temperament
+//     _("just intonation"),
+//     //.TRANS: musical temperament
+//     _("Meantone").toLowerCase(),
+//     _("custom"),
+//     //.TRANS: double flat is a music term related to pitch
+//     _("double flat"),
+//     //.TRANS: flat is a music term related to pitch
+//     _("flat"),
+//     //.TRANS: natural is a music term related to pitch
+//     _("natural"),
+//     //.TRANS: sharp is a music term related to pitch
+//     _("sharp"),
+//     //.TRANS: double sharp is a music term related to pitch
+//     _("double sharp"),
+//     // Chord names
+//     _("major"),
+//     _("minor"),
+//     _("augmented"),
+//     _("diminished"),
+//     _("major 7th"),
+//     _("minor 7th"),
+//     _("dominant 7th"),
+//     _("minor-major 7th"),
+//     _("fully-diminished 7th"),
+//     _("half-diminished 7th"),
+//     _("custom")
+// ];
 
 /**
  * Labels for accidentals, including their names and symbols.
@@ -2412,7 +2412,6 @@ const getOscillatorTypes = (name) => {
     if (name === "") {
         name = null; // DEFAULTOSCILLATORTYPE;
     }
-
     for (let type = 0; type < OSCTYPES.length; type++) {
         if (OSCTYPES[type][0].toLowerCase() === name.toLowerCase()) {
             return OSCTYPES[type][0];
@@ -5887,6 +5886,7 @@ const getPitchInfo = (activity, type, currentNote, tur) => {
         console.debug("Waiting for note to play");
     }
 };
+
 module.exports = {
     updateTemperaments,
     scaleDegreeToPitchMapping,
@@ -5916,7 +5916,6 @@ module.exports = {
     convertFactor,
     getPitchInfo,
     noteToFrequency,
-    TEMPERAMENT,
     setOctaveRatio,
     getOctaveRatio,
     TEMPERAMENT,
@@ -5929,8 +5928,6 @@ module.exports = {
     addTemperamentToList,
     deleteTemperamentFromList,
     addTemperamentToDictionary,
-    updateTemperaments,
-
     DEFAULTINVERT,
     DEFAULTMODE,
     customMode,
@@ -5938,7 +5935,6 @@ module.exports = {
     getIntervalNumber,
     getIntervalDirection,
     getIntervalRatio,
-
     getModeNumbers,
     getDrumIndex,
     getDrumName,
