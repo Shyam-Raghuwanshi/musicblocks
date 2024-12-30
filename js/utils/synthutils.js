@@ -1511,7 +1511,6 @@ function Synth() {
         if (paramsEffects === null && paramsFilters === null) {
             // See https://github.com/sugarlabs/musicblocks/issues/2951
             try {
-                console.log("hi there")
                 synth.triggerAttackRelease(notes, beatValue, Tone.now() + future);
             } catch (e) {
                 // eslint-disable-next-line no-console
@@ -1762,7 +1761,6 @@ function Synth() {
         let tempNotes = notes;
         let tempSynth = instruments[turtle]["electronic synth"];
         let flag = 0;
-        console.log(instrumentName in instruments[turtle])
         if (instrumentName in instruments[turtle]) {
             tempSynth = instruments[turtle][instrumentName];
             flag = instrumentsSource[instrumentName][0];
@@ -1959,7 +1957,7 @@ function Synth() {
         }
 
         // Convert volume to decibals
-        const db = Tone.gainToDb(nv / 100); //undefined
+        const db = Tone.gainToDb(nv / 100);
 
         if (instrumentName in instruments[turtle]) {
             instruments[turtle][instrumentName].volume.value = db;
